@@ -6,16 +6,24 @@
 //  version 2. You may not use this file except in compliance with the MPLv2. //
 //                                                                            //
 //============================================================================//
+package org.s7s.core.integration.launchd;
 
-rootProject.name = "org.s7s.core.integration.launchd"
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-buildscript {
-	repositories {
-		maven {
-			url = uri("https://plugins.gradle.org/m2/")
-		}
+public class LaunchdService {
+
+	public void write() throws IOException {
+
+		Files.writeString(Paths.get(""), """
+				<?xml version="1.0" encoding="UTF-8"?>
+				<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+				<plist version="1.0">
+				""");
 	}
-	dependencies {
-		classpath("org.s7s:org.s7s.build:+")
+
+	public void start() {
+
 	}
 }
